@@ -12,7 +12,7 @@ Git instalado
 
 Passo a passo para executar o projeto
 
-1. Clone o repositório
+1- Clone o repositório
 git clone https://github.com/Thmurillo/agendamento-salas.git ou baixe a pasta projeto_api
 
 2. Acesse a pasta do projeto

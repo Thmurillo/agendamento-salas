@@ -30,7 +30,7 @@ CREATE TABLE public.blocks (
 );
 
 
-ALTER TABLE public.blocks OWNER TO thalesmurillo;
+
 
 --
 -- Name: blocks_id_seq; Type: SEQUENCE; Schema: public; Owner: thalesmurillo
@@ -45,7 +45,7 @@ CREATE SEQUENCE public.blocks_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.blocks_id_seq OWNER TO thalesmurillo;
+
 
 --
 -- Name: blocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: thalesmurillo
@@ -72,7 +72,7 @@ CREATE TABLE public.reservations (
 );
 
 
-ALTER TABLE public.reservations OWNER TO thalesmurillo;
+
 
 --
 -- Name: reservations_id_seq; Type: SEQUENCE; Schema: public; Owner: thalesmurillo
@@ -87,7 +87,7 @@ CREATE SEQUENCE public.reservations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.reservations_id_seq OWNER TO thalesmurillo;
+
 
 --
 -- Name: reservations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: thalesmurillo
@@ -111,7 +111,7 @@ CREATE TABLE public.rooms (
 );
 
 
-ALTER TABLE public.rooms OWNER TO thalesmurillo;
+
 
 --
 -- Name: rooms_id_seq; Type: SEQUENCE; Schema: public; Owner: thalesmurillo
@@ -126,7 +126,7 @@ CREATE SEQUENCE public.rooms_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.rooms_id_seq OWNER TO thalesmurillo;
+
 
 --
 -- Name: rooms_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: thalesmurillo
@@ -150,7 +150,7 @@ CREATE TABLE public.students (
 );
 
 
-ALTER TABLE public.students OWNER TO thalesmurillo;
+
 
 --
 -- Name: student_id_seq; Type: SEQUENCE; Schema: public; Owner: thalesmurillo
@@ -165,7 +165,7 @@ CREATE SEQUENCE public.student_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.student_id_seq OWNER TO thalesmurillo;
+
 
 --
 -- Name: student_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: thalesmurillo
@@ -189,7 +189,7 @@ CREATE TABLE public.teachers (
 );
 
 
-ALTER TABLE public.teachers OWNER TO thalesmurillo;
+
 
 --
 -- Name: teacher_id_seq; Type: SEQUENCE; Schema: public; Owner: thalesmurillo
@@ -204,7 +204,7 @@ CREATE SEQUENCE public.teacher_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.teacher_id_seq OWNER TO thalesmurillo;
+
 
 --
 -- Name: teacher_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: thalesmurillo
@@ -226,7 +226,7 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO thalesmurillo;
+
 
 --
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: thalesmurillo
@@ -241,7 +241,7 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.users_id_seq OWNER TO thalesmurillo;
+
 
 --
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: thalesmurillo

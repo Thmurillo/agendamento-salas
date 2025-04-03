@@ -1,111 +1,143 @@
-Agendamento de Salas
+# Agendamento de Salas
 
-Sistema desenvolvido em Python com FastAPI e PostgreSQL para agendamento de salas em um ambiente institucional.
+Este sistema, desenvolvido em Python utilizando FastAPI e PostgreSQL, permite o agendamento de salas em um ambiente institucional.
 
-Requisitos
+## Requisitos
 
-Python 3.12 instalado
+- Python 3.12 instalado
+- PostgreSQL instalado e em execução localmente (porta padrão: 5432)
+- Git instalado
 
-PostgreSQL instalado e rodando localmente (porta padrão: 5432)
+## Passo a Passo para Executar o Projeto
 
-Git instalado
+1. **Clone o repositório:**
 
-Passo a passo para executar o projeto
+   ```bash
+   git clone https://github.com/Thmurillo/agendamento-salas.git
+   ```
 
-1. Clone o repositório
+   *ou baixe a pasta `projeto_api`.*
 
-git clone https://github.com/Thmurillo/agendamento-salas.git ou baixe a pasta projeto_api
+2. **Acesse a pasta do projeto:**
 
-2. Acesse a pasta do projeto
- 
-cd endereço/projeto_api
+   ```bash
+   cd caminho/para/projeto_api
+   ```
 
-3. Crie o ambiente virtual (dentro da pasta projeto_api)
+3. **Crie o ambiente virtual (dentro da pasta `projeto_api`):**
+
+   ```bash
+   python3 -m venv venv
+   ```
+
+4. **Ative o ambiente virtual:**
+
+   - No macOS/Linux:
+
+     ```bash
+     source venv/bin/activate
+     ```
+
+   - No Windows:
+
+     ```bash
+     venv\Scripts\activate
+     ```
+
+5. **Instale as dependências:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Configurando o Banco de Dados
+
+6. **Crie o banco de dados:**
+
+   - **Opção 1 - Via terminal:**
+
+     Abra o terminal e execute:
+
+     ```bash
+     psql -U postgres -h localhost -p 5432 -c "CREATE DATABASE agendamento_salas;"
+     ```
+
+     *(Substitua `postgres` pelo seu usuário do PostgreSQL, se for diferente.)*
+
+   - **Opção 2 - Via SQL Shell (psql):**
+
+     Abra o programa SQL Shell (psql).
+
+     Pressione Enter para todas as opções até chegar no prompt.
+
+     Digite:
+
+     ```sql
+     CREATE DATABASE agendamento_salas;
+     ```
+
+7. **Crie as tabelas do banco de dados:**
+
+   Com o banco criado, execute o script que está na pasta `projeto_api`:
+
+   ```bash
+   psql -U postgres -d agendamento_salas -f schema.sql
+   ```
+
+   *(Substitua `postgres` se seu usuário for diferente.)*
    
-python3 -m venv venv
+   Ou execute o scrip do arquivo schema.sql diretamente no PostgreSQL
 
-4. Ative o ambiente virtual
+## Variável de Ambiente
 
-No macOS/Linux:
+8. **Crie um arquivo chamado `.env` dentro da pasta `projeto_api`:**
 
-source venv/bin/activate
+   Utilize um editor de texto para criar o arquivo com o nome exato `.env` (sem nome antes do ponto) e adicione o seguinte conteúdo:
 
-No Windows:
+   ```ini
+   DATABASE_URL=postgresql+asyncpg://postgres@localhost:5432/agendamento_salas
+   ```
 
-venv\Scripts\activate
+   *(Substitua `postgres` após `//` pelo seu usuário do PostgreSQL, se for diferente.)*
 
-5. Instale as dependências
+   Se seu PostgreSQL tiver senha ou usuário diferente:
 
-pip install -r requirements.txt
+   ```ini
+   DATABASE_URL=postgresql+asyncpg://usuario:senha@localhost:5432/agendamento_salas
+   ```
 
-Configurando o banco de dados
+## Executando o Servidor FastAPI
 
-6. Crie o banco de dados
+9. **Inicie o servidor FastAPI:**
 
-Opção 1 - Via terminal:
+   Com o ambiente virtual ativado e dentro da pasta `projeto_api`, execute:
 
-Abra o terminal e execute:
+   ```bash
+   uvicorn main:app --reload
+   ```
 
-psql -U postgres -h localhost -p 5432 -c "CREATE DATABASE agendamento_salas;"
+   O servidor iniciará em:
 
-(Substitua postgres pelo seu usuário do PostgreSQL, se for diferente)
+   ```
+   http://127.0.0.1:8000
+   ```
 
-Opção 2 - Via SQL Shell (psql):
+10. **Acesse a documentação interativa da API:**
 
-Abra o programa SQL Shell (psql)
+    Abra no navegador:
 
-Pressione Enter para todas as opções até chegar no prompt
+    ```
+    http://127.0.0.1:8000/docs
+    ```
 
-Digite:
+    O sistema estará em execução local e você pode testar todos os endpoints pela documentação gerada automaticamente pelo Swagger UI.
 
-CREATE DATABASE agendamento_salas;
+11. **Para uso no Postman:**
 
-7. Crie as tabelas do banco de dados
+    Consulte o arquivo `.pdf` intitulado "Manual de uso API agendamento salas" para obter instruções detalhadas.
 
-Com o banco criado, execute o script que está na pasta projeto_api:
+Qualquer problema, consulte este README novamente ou entre em contato pelo email [thmurillo@hotmail.com].
 
-psql -U postgres -d agendamento_salas -f schema.sql
-
-(Substitua postgres se seu usuário for diferente)
-
-Variável de ambiente
-
-8. Crie um arquivo chamado .env dentro da pasta projeto_api, Para criação pode-se usar um editor
-
-Crie o arquivo com o nome exato .env (sem nome antes do ponto) e adicione o seguinte:
-
-Altere os dados conforme sua instalação local:
-
-DATABASE_URL=postgresql+asyncpg://postgres@localhost:5432/agendamento_salas (Substitua postgres(depois do"//") pelo seu usuário do PostgreSQL, se for diferente)
-
-Se seu PostgreSQL tiver senha ou usuário diferente:
-
-DATABASE_URL=postgresql+asyncpg://usuario:senha@localhost:5432/agendamento_salas
-
-9. Rode o servidor FastAPI
-
-Estando com o ambiente virtual ativado e dentro da pasta projeto_api:
-
-uvicorn main:app --reload
-
-O servidor iniciará em:
-
-http://127.0.0.1:8000
-
-10. Acesse a documentação interativa da API:
-
-Abra no navegador:
-
-http://127.0.0.1:8000/docs
-
-Pronto!
-
-O sistema estará em execução local e você pode testar todos os endpoints pela documentação gerada automaticamente pelo Swagger UI.
-
-11. Para uso em postman acesse o arquivo .pdf "Manual de uso API agendamento salas"
-
-Qualquer problema, consulte o README novamente ou entre em contato pelo email thmurillo@hotmail.com.
-
-Desenvolvido por Thales Murillo
+Desenvolvido por Thales Murillo.
 
 Bons testes! ✨
